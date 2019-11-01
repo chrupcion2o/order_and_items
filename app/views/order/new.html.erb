@@ -1,2 +1,32 @@
 <h1>Order#new</h1>
 <p>Find me in app/views/order/new.html.erb</p>
+
+
+<div id="app" class="flex column">
+
+  <%= form_with(url: create_order_path, method: "post") do |form| %>
+
+    <input type="number" v-model="tax" name="tax" placeholder="Tax amt">
+
+    <div v-for="item in orderItems">
+        <input type="number" v-model="item.net_price" placeholder="Net price">
+        <input type="number" v-model="item.quantity" placeholder="Quantity">
+
+        <!-- <button  v-on:click="removeOrderItem(item)" type="button">X</button> -->
+    </div>
+
+     <button v-on:click="addOrderItem" type="button">Add Order Item</button>
+
+
+
+    <%= form.hidden_field 'tax', 'v-bind:value'=> 'tax' %>
+    <%= form.hidden_field 'orderItems', 'v-bind:value'=> 'JSON.stringify(orderItems)' %>
+
+
+    <%= form.submit 'Create Order'%>
+  <% end %>
+</div>
+
+
+<%= javascript_pack_tag 'new_order' %>
+
