@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'new' => 'order#new'
+  post 'create' => 'order#new'
+  get 'index' => 'order#index'
+  root 'order#index'
 end
