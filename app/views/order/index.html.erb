@@ -1,5 +1,43 @@
 <p id="notice"><%= notice %></p>
-<h1>Order#index</h1>
+<h1></h1>
+<table>
+  Orders
+  <tr>
+    <th>net_total</th>
+    <th>tax</th>
+    <th>total</th>
+  </tr>
+  <% @orders.each do |order| %>
+    <tr>
+      <td><%= order.net_total %></td>
+      <td><%= order.tax %></td>
+      <td><%= order.total %></td>
+    </tr>
+  <% end %>
+</table>
+
+<br><br>
+
+<table>
+  Order items
+  <tr>
+    <th>order_id</th>
+    <th>net_price</th>
+    <th>net_total</th>
+    <th>quantity</th>
+    <th>total</th>
+  </tr>
+  <% @order_items.each do |item| %>
+    <tr>
+      <td><%= item.order_id %></td>
+      <td><%= item.net_price %></td>
+      <td><%= item.net_total %></td>
+      <td><%= item.quantity %></td>
+      <td><%= item.total %></td>
+    </tr>
+  <% end %>
+</table>
+
 
 <%= link_to 'New', new_order_path %>
 

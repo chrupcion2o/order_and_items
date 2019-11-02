@@ -6,14 +6,17 @@ class OrderController < ApplicationController
     result = ::NewOrderWithItems.new.call(create_params)
 
     if result.success?
-      flash[:notice] = "Success"
+      flash[:notice] = 'Success'
     else
-      flash[:error] = "Error"
+      flash[:error] = 'Error'
     end
-    render :index
+
+    redirect_to root_url
   end
 
   def index
+    @orders = Order.all
+    @order_items = OrderItem.all
   end
 
   private

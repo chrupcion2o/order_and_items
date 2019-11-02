@@ -28,6 +28,15 @@ class NewOrderWithItems
   end
 
   def save(order_and_items)
-    Success()
+    order = Order.new(order_and_items[:order])
+
+    ActiveRecord::Base.transaction do
+      order.save!
+      order_and_items[:order_items].each { |item| order.order_items.build(item).save! }
+    end
+
+    Success('Saved successfully')
+  rescue StandardError
+    Failure('Failed to save')
   end
 end

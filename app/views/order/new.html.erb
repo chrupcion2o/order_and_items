@@ -9,7 +9,10 @@
     <input type="number" v-model="tax" name="tax" placeholder="Tax amt">
 
     <div v-for="item in orderItems">
+        <label>Net price</label>
         <input type="number" v-model="item.net_price" placeholder="Net price">
+
+        <label>Quantity</label>
         <input type="number" v-model="item.quantity" placeholder="Quantity">
 
         <!-- <button  v-on:click="removeOrderItem(item)" type="button">X</button> -->
