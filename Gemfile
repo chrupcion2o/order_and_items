@@ -32,6 +32,7 @@ gem 'dry-validation'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'awesome_print'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', require: false
   gem 'rubocop', require: false

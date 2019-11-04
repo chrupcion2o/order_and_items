@@ -1,5 +1,4 @@
 <h1>Order#new</h1>
-<p>Find me in app/views/order/new.html.erb</p>
 
 
 <div id="app" class="flex column">
@@ -25,8 +24,7 @@
     <%= form.hidden_field 'tax', 'v-bind:value'=> 'tax' %>
     <%= form.hidden_field 'orderItems', 'v-bind:value'=> 'JSON.stringify(orderItems)' %>
 
-
-    <%= form.submit 'Create Order'%>
+    <button v-on:click="postForm" type="button">Create order</button>
   <% end %>
 </div>
 

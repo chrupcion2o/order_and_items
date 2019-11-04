@@ -1,4 +1,6 @@
 class OrderController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def new
   end
 
@@ -22,6 +24,6 @@ class OrderController < ApplicationController
   private
 
   def create_params
-    params.permit(:tax, :orderItems).to_h
+    params.permit(:tax, { orderItems: [:net_price, :quantity] }).to_h.with_indifferent_access
   end
 end

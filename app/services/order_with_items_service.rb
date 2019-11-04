@@ -22,11 +22,11 @@ class OrderWithItemsService
   end
 
   def fill_order_item(item, tax)
-    net_total = item['net_price'] * item['quantity']
+    net_total = item[:net_price] * item[:quantity]
 
     {
-      net_price: item['net_price'],
-      quantity: item['quantity'],
+      net_price: item[:net_price],
+      quantity: item[:quantity],
       net_total: net_total,
       total: net_total + (net_total * tax / 100)
     }
