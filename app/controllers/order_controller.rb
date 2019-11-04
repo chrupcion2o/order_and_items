@@ -24,6 +24,6 @@ class OrderController < ApplicationController
   private
 
   def create_params
-    params.permit(:tax, { orderItems: [:net_price, :quantity] }).to_h.with_indifferent_access
+    params.permit(:tax, orderItems: [:net_price, :quantity]).to_h.with_indifferent_access
   end
 end

@@ -5,8 +5,8 @@ require 'rails_helper'
 describe NewOrderWithItems do
   let(:input) { { tax: tax, orderItems: orderItems } }
   let(:tax) { '23.0' }
-  let(:net_price) { '100'}
-  let(:quantity) { '2.0'}
+  let(:net_price) { '100' }
+  let(:quantity) { '2.0' }
   let(:item) { { net_price: net_price, quantity: quantity } }
   let(:orderItems) { [item, item] }
 

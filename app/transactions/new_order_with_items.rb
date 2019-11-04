@@ -11,7 +11,7 @@ class NewOrderWithItems
 
   def validate(input)
     input[:tax] = BigDecimal(input[:tax])
-    input[:orderItems] = input[:orderItems].map { |item| item.transform_values{ |v| BigDecimal(v) } }
+    input[:orderItems] = input[:orderItems].map { |item| item.transform_values { |v| BigDecimal(v) } }
     validation_result = ::Validators::NewOrderWithItems.new.call(input)
 
     if validation_result.success?
@@ -19,7 +19,7 @@ class NewOrderWithItems
     else
       Failure(validation_result.errors.to_h)
     end
-  rescue
+  rescue StandardError
     Failure('Failed to parse request')
   end
 

@@ -31,10 +31,10 @@ describe OrderWithItemsService do
     it 'returns filled order with items' do
       result = subject.create(input)
 
-      expect(result).to eq({
+      expect(result).to eq(
         order: filled_order,
         order_items: [filled_item, filled_item]
-      })
+      )
     end
   end
 end
